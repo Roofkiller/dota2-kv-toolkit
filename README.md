@@ -1,6 +1,6 @@
 # VS Code DotA 2 KV Toolkit
 
-This is the README for your extension "dota-2-kv-toolkit". After writing up a brief description, we recommend including the following sections.
+This VS Code extension provides some additional features which should enhance the workflow with Valves KV-files.
 
 ## Features
 
