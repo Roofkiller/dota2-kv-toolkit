@@ -2,16 +2,18 @@
 
 This VS Code extension provides some additional features which should enhance the workflow with Valves KV-files.
 
+Download here: https://marketplace.visualstudio.com/items?itemName=nicholasgao.dota-2-kv-toolkit
+
 ## Features
 
 * `Merge KVs` (`Shift+Alt+M`) command which automatically builds the `npc_units_custom.txt`, `npc_abilities_custom.txt`, `npc_heroes_custom.txt` and `npc_items_custom.txt` based on the `units`, `abilities`, `heroes`, and `items` folders located in your `scripts/npc` folder.
 
-* `Auto Merge KVs` calls automatically `Merge KVs` as soon as a file inside the `scripts/npc` folder has changed. (Only works without folder junctions!)
-
-Warning(!) : Running this command overrides your old `npc_*_custom.txt` files.
+* `Auto Merge KVs` calls automatically `Merge KVs` as soon as a file inside the `scripts/npc` folder has changed.
 
 ## Known Issues
 
+* Merging kvs can lead to a loss in the previous `npc_*_custom.txt` files.
+* Auto merge only works in a workspace without folder junctions.
 
 ## Release Notes
 
