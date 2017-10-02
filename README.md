@@ -4,9 +4,9 @@ This VS Code extension provides some additional features which should enhance th
 
 ## Features
 
-At the moment there is only one feature.
+* `Merge KVs` (`Shift+Alt+M`) command which automatically builds the `npc_units_custom.txt`, `npc_abilities_custom.txt`, `npc_heroes_custom.txt` and `npc_items_custom.txt` based on the `units`, `abilities`, `heroes`, and `items` folders located in your `scripts/npc` folder.
 
-* Added a `Merge KVs` command which automatically builds the `npc_units_custom.txt`, `npc_abilities_custom.txt`, `npc_heroes_custom.txt` and `npc_items_custom.txt` based on the `units`, `abilities`, `heroes`, and `items` folders located in your `scripts/npc` folder.
+* `Auto Merge KVs` calls automatically `Merge KVs` as soon as a file inside the `scripts/npc` folder has changed. (Only works without folder junctions!)
 
 Warning(!) : Running this command overrides your old `npc_*_custom.txt` files.
 

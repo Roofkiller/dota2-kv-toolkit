@@ -2,7 +2,7 @@
     "name": "dota-2-kv-toolkit",
     "displayName": "Dota 2 KV Toolkit",
     "description": "",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "nicholasgao",
     "engines": {
         "vscode": "^1.16.0"
@@ -11,7 +11,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.mergeKv"
+        "onCommand:extension.mergeKv",
+        "onCommand:extension.autoMergeKv"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -19,6 +20,16 @@
             {
                 "command": "extension.mergeKv",
                 "title": "Merge KVs"
+            },
+            {
+                "command": "extension.autoMergeKv",
+                "title": "Auto merge KVs"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.mergeKv",
+                "key": "shift+alt+m"
             }
         ]
     },
@@ -32,7 +43,6 @@
     "devDependencies": {
         "typescript": "^2.5.3",
         "vscode": "^1.1.5",
-        "vscode-uri": "1.0.1",
         "@types/node": "^7.0.43",
         "@types/mocha": "^2.2.42"
     }
