@@ -3,11 +3,11 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as fs from 'fs';
+import { connect } from 'net';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "dota-2-kv-toolkit" is now active!');
@@ -97,7 +97,6 @@ class KvMerger {
                     console.log("Failed to merge.");
                     reject();
                 });
-                await promise;
             }, reason => {
                 console.log("Could not find a 'npc_units_custom.txt' file.");
                 reject();
@@ -125,12 +124,12 @@ class KvMerger {
         // let workspace = vscode.workspace.getWorkspaceFolder(npcFolder);
         let workspace = vscode.workspace.workspaceFolders[0];
         let targetFile = vscode.Uri.parse(`${npcFolder.path}/npc_${folder}_custom.txt`);
+        let path = folderPath.path.substring(3).replace(workspace.uri.path.substring(3) + "/", "") + "/**/*.txt"
         return new Promise<void>((resolve, reject) => {
-            vscode.workspace.findFiles(folderPath.path.replace(workspace.uri.path + "/", "") + "/*.txt").then(async files => {
+            vscode.workspace.findFiles(path).then(async files => {
                 let promise = this.MergeFiles(files, targetFile, key);
                 promise.then(resolve);
                 promise.catch(reject);
-                await promise;
             });
         });
     }
