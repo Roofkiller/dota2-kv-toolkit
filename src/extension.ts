@@ -140,6 +140,9 @@ class KvMerger {
             let content = await ReadFile(file.fsPath, 'utf8');
             //Add indents
             result += content.replace(/^(?!\s*$)/mg, ' '.repeat(4));
+            if (result.slice(-1) != '\n') {
+                result += '\n'; 
+            }
         }
         result += "\n}";
         await WriteFile(targetFile.fsPath, result);
