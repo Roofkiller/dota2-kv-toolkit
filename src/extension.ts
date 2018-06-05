@@ -124,9 +124,10 @@ class KvMerger {
         // let workspace = vscode.workspace.getWorkspaceFolder(npcFolder);
         let workspace = vscode.workspace.workspaceFolders[0];
         let targetFile = vscode.Uri.parse(`${npcFolder.path}/npc_${folder}_custom.txt`);
-        let path = folderPath.path.substring(3).replace(workspace.uri.path.substring(3) + "/", "") + "/**/*.txt"
+        let path = folderPath.path.substring(3).replace(workspace.uri.path.substring(3) + "/", "") + "/**/*.txt";
         return new Promise<void>((resolve, reject) => {
-            vscode.workspace.findFiles(path).then(async files => {
+            vscode.workspace.findFiles(path).then(async (files : vscode.Uri[]) => {
+                files = files.sort((f1, f2) => f1.fsPath.localeCompare(f2.fsPath));
                 let promise = this.MergeFiles(files, targetFile, key);
                 promise.then(resolve);
                 promise.catch(reject);
